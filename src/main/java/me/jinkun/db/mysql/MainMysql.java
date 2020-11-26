@@ -15,8 +15,9 @@ import java.util.Map;
  */
 public class MainMysql {
     public static void main(String[] args) throws Exception {
+        //高版本运行出错 请更改pom中的MySQL驱动版本到8.0.11
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.20.126:3306/rap", "root", "123456");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/jky_ycyl_inline", "root", "rootroot");
 
         List<Map> tableList = getTableList(conn);
 
@@ -26,7 +27,7 @@ public class MainMysql {
         Map map = new HashMap<>();
         map.put("table", tableList);
 
-        ftUtil.generateFile("/", "moban.xml", map, "D:/", "scott.doc");
+        ftUtil.generateFile("/", "tabledoc.xml", map, "/Users/liyibo/IdeaProjects/db-generator/target/", "朱家角.doc");
     }
 
     // 获取数据库中所有表的表名，并添加到列表结构中。
